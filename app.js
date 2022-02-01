@@ -3,13 +3,31 @@
 // let state
 const form = document.getElementById('add-ingredient');
 const foodList = document.getElementById('food-list');
-const mealList = document.getElementById('meal-list');
+const mealsList = document.getElementById('meal-list');
 const remove = document.getElementById('remove');
 const save = document.getElementById('save-meal');
 
-let ingredient = [];
+let meals = [];
 let quantity = [];
 let measurement = [];
+
+
+function renderMeals() {
+    mealsList.textContent = '';
+    for (let item of meals) {
+        const li = renderMeals(item);
+        mealsList.appendChild(li);
+    }
+
+}
+function renderFood() {
+  const foodList.textContent = '';
+  for (let item of food) {
+    const li = renderFood(item);
+    foodList.appendChild.(li);
+  }
+
+}
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -17,15 +35,20 @@ form.addEventListener('submit', (e) => {
     const meal = {
         ingredient: formData.get('ingredient'),
         quantity: formData.get('quantity'),
-        measurment: formData.get('measurment'),
-
+        measurement: formData.get('quantity'),
+      
     };
 
     meal.push(meal);
-    renderStats();
-    form.requestFullscreen();
+    renderMeals();
+    form.reset();
+
     
-    
+});
+
+remove.addEventListener ('click' , ( )=> {
+    meals.pop();
+    renderMeals();
 });
 
 // set event listeners 
