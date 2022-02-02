@@ -20,11 +20,6 @@
     </header>
     <main>
         <section>   
-
-        
-       
-
-         
             <img class="main-logo" src="./assets/recipe.jpeg" />
             <h2>
                 FOOD!
@@ -35,21 +30,23 @@
              <form id="add-ingredient">
                 <label> 
                     Ingredient:
-                    <input type=text name= ingredient id= ingredient>
+                    <input type="text" name= "ingredient" id= "ingredient">
                 </label>
 
                 <label>
                      Quantity:
-                     <input type=text name= quantity id= quantity>
+                     <input type="number" name="quantity" id="quantity">
                 </label>
 
                 <label>
                     Measurement
-                    <input type=text name= measurement id= measurement>
-                </label>
-                <button type='submit'>Add Ingredient</button>
+                    <input type="number" name="measurement" id="measurement">
+                </label>    
+                <button type="submit">Add Ingredient</button>
+                <ul id="meals-list"></ul>
+                
             </form>
-            <div class="food-list">
+            <div class="food">
                 <ul id="food-list"></ul>
                 <button id="remove">Remove Last Item</button>
             </div>

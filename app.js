@@ -8,8 +8,8 @@ const remove = document.getElementById('remove');
 const save = document.getElementById('save-meal');
 
 let meals = [];
-let quantity = [];
-let measurement = [];
+let food = [];
+
 
 
 function renderMeals() {
@@ -21,12 +21,17 @@ function renderMeals() {
 
 }
 function renderFood() {
-  const foodList.textContent = '';
-  for (let item of food) {
-    const li = renderFood(item);
-    foodList.appendChild.(li);
-  }
+    foodList.textContent = '';
+    for (let food of food) {
+        const li = renderFood(food);
+        foodList.appendChild(li);
+    }
 
+}
+
+function resetMeals(){
+    meals = [];
+    mealsList.textContent = '';
 }
 
 form.addEventListener('submit', (e) => {
@@ -39,18 +44,31 @@ form.addEventListener('submit', (e) => {
       
     };
 
-    meal.push(meal);
+    meals.push(meal);
     renderMeals();
     form.reset();
 
     
 });
 
-remove.addEventListener ('click' , ( )=> {
+remove.addEventListener ('click', ()=> {
     meals.pop();
     renderMeals();
 });
 
+save.addEventListener ('click', () => {
+    let totalQuantity = 0;
+    for (let meal of meals) {
+        totalQuantity += (meal.points * 1);
+    }
+    const recipe = {
+        number: recipe.length + 1,
+        totalQuantity: totalQuantity,
+    };
+    recipe.push(recipe);
+    renderFood();
+    resetMeals();
+});
 // set event listeners 
   // get user input
   // use user input to update state 
