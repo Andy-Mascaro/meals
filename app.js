@@ -1,73 +1,71 @@
+import { renderMealLi, renderIngredientLi } from '/.utils.js';
 // import functions and grab DOM elements
 //import { renderStat, renderGame } from './utils.js';
 // let state
 const form = document.getElementById('add-ingredient');
-const foodList = document.getElementById('food-list');
+const ingredientList = document.getElementById('ingredient-list');
 const mealsList = document.getElementById('meal-list');
 const remove = document.getElementById('remove');
 const save = document.getElementById('save-meal');
-
+const mealName = document.getElementById('meal-name');
 let meals = [];
-let food = [];
+let ingredients = [];
 
 
 
 function renderMeals() {
     mealsList.textContent = '';
-    for (let item of meals) {
-        const li = renderMeals(item);
-        mealsList.appendChild(li);
+    for (let meal of meals) {
+        const li = renderMealLi(meal);
+        mealsList.append(li);
     }
 
 }
-function renderFood() {
-    foodList.textContent = '';
-    for (let food of food) {
-        const li = renderFood(food);
-        foodList.appendChild(li);
+function renderIngredients() {
+    ingredientList.textContent = '';
+    for (let item of ingredients) {
+        const li = renderIngredientLi(item);
+        ingredientList.appendChild(li);
     }
 
 }
 
-function resetMeals(){
-    meals = [];
-    mealsList.textContent = '';
+function resetIngredients(){
+    ingredients = [];
+    ingredientList.textContent = '';
 }
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formData = new FormData(form);
-    const meal = {
-        ingredient: formData.get('ingredient'),
-        quantity: formData.get('quantity'),
-        measurement: formData.get('quantity'),
+    const data = new FormData(form);
+    const item = {
+        ingredient: data.get('ingredient'),
+        quantity: data.get('quantity'),
+        measurement: data.get('measurement'),
       
     };
 
-    meals.push(meal);
-    renderMeals();
+    ingredients.push(item);
+    renderIngredients();
     form.reset();
 
     
 });
 
 remove.addEventListener ('click', ()=> {
-    meals.pop();
-    renderMeals();
+    ingredients.pop();
+    renderIngredients();
 });
 
 save.addEventListener ('click', () => {
-    let totalQuantity = 0;
-    for (let meal of meals) {
-        totalQuantity += (meal.points * 1);
-    }
-    const recipe = {
-        number: recipe.length + 1,
-        totalQuantity: totalQuantity,
-    };
-    recipe.push(recipe);
-    renderFood();
-    resetMeals();
+    const name = mealName.value;
+    const count = ingredients.length;  
+    meals.push({ name, count });
+    renderMeals();
+    resetIngredients();
+
+    
+    
 });
 // set event listeners 
   // get user input
