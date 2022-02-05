@@ -1,4 +1,4 @@
-import { renderMealLi, renderIngredientLi } from '/.utils.js';
+import { renderMealLi, renderIngredientLi } from './utils.js';
 // import functions and grab DOM elements
 //import { renderStat, renderGame } from './utils.js';
 // let state
